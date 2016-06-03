@@ -5,6 +5,8 @@ var express = require('express'),
 	path = require('path'),
     app = express();
 
+var http = require('http').Server(app);
+
 
 app.use(express.static(__dirname + '/uploads'));
 // parse application/json  middleware
@@ -28,10 +30,14 @@ var allowCrossDomain = function(req, res, next) {
 app.use(allowCrossDomain);
 app.use('/', require('./routes/index'));
 
-app.set('port', process.env.PORT || 3000);
-app.listen(app.get('port'), function() {
-	// start the server
-	console.log('Server started! At http://localhost:' + app.get('port'));
+http.listen(process.env.PORT || 3000, function(){
+  console.log('listening on', http.address().port);
 });
+
+//app.set('port', process.env.PORT || 3000);
+//app.listen(app.get('port'), function() {
+	// start the server
+	//console.log('Server started! At http://localhost:' + app.get('port'));
+//});
 
 module.exports = app;
