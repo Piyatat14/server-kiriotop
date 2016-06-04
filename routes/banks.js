@@ -2,17 +2,17 @@ var mysql = require('mysql'),
 	strQuery = "",
 	/*
 	connection = mysql.createConnection({
-		host : "us-cdbr-iron-east-03.cleardb.net",
-		user : "bdbd8affec3e86",
-		password : "1252ed96",
-		database : "heroku_5d02e003c9e3105"
-	});
-	*/
-	connection = mysql.createConnection({
 		host: "localhost",
 		user: "root",
 		password: "1234",
 		database: "kiri_otop"
+	});
+	*/
+	connection = mysql.createConnection({
+		host: "us-cdbr-iron-east-04.cleardb.net",
+		user: "bb6443716319a5",
+		password: "d07d3f2a0fe1967",
+		database: "heroku_c492d9ed64b90f3"
 	});
 
 connection.connect();
