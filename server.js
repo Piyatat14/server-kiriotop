@@ -5,7 +5,7 @@ var express = require('express'),
 	path = require('path'),
     app = express();
 
-var http = require('http').Server(app);
+//var http = require('http').Server(app);
 
 
 app.use(express.static(__dirname + '/uploads'));
@@ -22,7 +22,6 @@ var allowCrossDomain = function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
 	res.header('Access-Control-Allow-Headers', 'Content-Type');
-	res.end('Server is Running...');
 
 	next();
 }
@@ -30,14 +29,14 @@ var allowCrossDomain = function(req, res, next) {
 app.use(allowCrossDomain);
 
 
-http.listen(process.env.PORT || 5000, function(){
-  console.log('listening on', http.address().port);
-});
-
-//app.set('port', process.env.PORT || 3000);
-//app.listen(app.get('port'), function() {
-	// start the server
-	//console.log('Server started! At http://localhost:' + app.get('port'));
+//http.listen(process.env.PORT || 5000, function(){
+  //console.log('listening on', http.address().port);
 //});
+
+app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'), function() {
+	// start the server
+	console.log('Server started! At http://localhost:' + app.get('port'));
+});
 
 module.exports = app;
