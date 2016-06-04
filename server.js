@@ -30,7 +30,7 @@ var allowCrossDomain = function(req, res, next) {
 app.use(allowCrossDomain);
 
 
-http.listen(process.env.PORT || 3000, function(){
+http.listen(process.env.PORT || 5000, function(){
   console.log('listening on', http.address().port);
 });
 
