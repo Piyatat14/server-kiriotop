@@ -94,9 +94,19 @@ exports.addImage = function(req, res) {
 		}
 	});
 
-	var upload = multer({ storage: storage });
+	var upload = multer({ storage: storage }).single('image');
 
-	res.send("SUCCESS");
+	upload(req, res, function (err) {
+	    if (err) {
+	      // An error occurred when uploading
+	      res.send('Error: ' + err.message);
+	    }
+	    // Everything went fine
+		console.log(req.body);
+		console.log(req.file);
+		res.send(req.files.filename);				//return filename destination in folder uploads/img in server.
+		res.status(204).end();
+	})
 	
 };
 
