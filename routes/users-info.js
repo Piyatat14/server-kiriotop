@@ -86,7 +86,7 @@ exports.insertRegis = function(req, res) {
 exports.addImage = function(req, res) {
 	var storage = multer.diskStorage({
 		destination: function (req, file, cb) {
-			cb(null, './uploads/img');
+			cb(null, 'uploads/img');
 		},
 		filename: function (req, file, cb) {
 			console.log("Filename in server : " + file.originalname);
@@ -97,18 +97,16 @@ exports.addImage = function(req, res) {
 	var upload = multer({ storage: storage }).single('image');
 
 	upload(req, res, function (err) {
-    if (err) {
-      // An error occurred when uploading
-      res.send('Error: ' + err.message);
-    }else {
-    	console.log(upload);
-    }
-    // Everything went fine
-	console.log(req.body);
-	console.log(req.file);
-	res.send(filename);				//return filename destination in folder uploads/img in server.
-	res.status(204).end();
-  })
+	    if (err) {
+	      // An error occurred when uploading
+	      res.send('Error: ' + err.message);
+	    }
+	    // Everything went fine
+		console.log(req.body);
+		console.log(req.file);
+		res.send(req.file.filename);				//return filename destination in folder uploads/img in server.
+		res.status(204).end();
+  	})
 	
 };
 
