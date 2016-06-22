@@ -85,7 +85,7 @@ exports.insertRegis = function(req, res) {
 
 exports.addImage = function(req, res) {
 	console.log("=============");
-	console.log(req.fileName);
+	console.log(req.body.fileName);
 	console.log("=============");
 	var storage = multer.diskStorage({
 		destination: function (req, file, cb) {
