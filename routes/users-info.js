@@ -103,8 +103,8 @@ exports.addImage = function(req, res) {
 	    }
 	    // Everything went fine
 		console.log(req.body);
-		console.log(req.file);
-		res.send(req.file.filename);				//return filename destination in folder uploads/img in server.
+		console.log(req.files);
+		res.send(req.files.filename);				//return filename destination in folder uploads/img in server.
 		res.status(204).end();
 	})
 	
