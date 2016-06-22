@@ -102,8 +102,8 @@ exports.addImage = function(req, res) {
       res.send('Error: ' + err.message);
     }
     // Everything went fine
-	console.log(req.body);
-	console.log(req.file);
+	console.log("Req.body = " + req.body);
+	console.log("Req file = " + req.file);
 	res.send(req.file.filename);				//return filename destination in folder uploads/img in server.
 	res.status(204).end();
   })
