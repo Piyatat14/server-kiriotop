@@ -100,6 +100,8 @@ exports.addImage = function(req, res) {
     if (err) {
       // An error occurred when uploading
       res.send('Error: ' + err.message);
+    }else {
+    	console.log(upload);
     }
     // Everything went fine
 	console.log(req.body);
