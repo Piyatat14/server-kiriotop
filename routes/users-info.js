@@ -84,13 +84,16 @@ exports.insertRegis = function(req, res) {
 };
 
 exports.addImage = function(req, res) {
+	console.log("=============");
+	console.log(req.file);
+	console.log("=============");
 	var storage = multer.diskStorage({
 		destination: function (req, file, cb) {
 			cb(null, './uploads/img');
 		},
 		filename: function (req, file, cb) {
 			console.log("Filename in server : " + file.originalname);
-			cb(null, req.body.userID + '-' + file.originalname  + '.jpg'); //Appending mimeType.
+			cb(null, req.body.userID + '-' + file.originalname + '-' + Date.now() + '.jpg'); //Appending mimeType.
 		}
 	});
 
