@@ -97,13 +97,15 @@ exports.addImage = function(req, res) {
 	var upload = multer({ storage: storage }).single('image');
 
 	upload(req, res, function (err) {
+		console.log(res);
+		console.log(req);
 	    if (err) {
 	      // An error occurred when uploading
 	      res.send('Error: ' + err.message);
 	    }
 	    // Everything went fine
 		console.log(req.body);
-		console.log(req.files);
+		console.log(req.file);
 		//res.send(req.files.filename);				//return filename destination in folder uploads/img in server.
 		res.status(204).end();
 	})
